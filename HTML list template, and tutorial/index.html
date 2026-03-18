@@ -1,51 +1,125 @@
+<!--
+Creado por Martin Aceituno; Dec 10, 2025
+
+ esto es un comentario en HTML 
+
+tab y shift+tab para agregar o quitar espaciados
+seleccionando con el mause se puede afectar a todos los elementos remarcados
+
+html lang="es" 
+
+{
+    [head
+        (aca siempre va el <title> y las meta que son 5)
+    ], 
+    [body(
+        (header)
+        (main)
+        (aside)
+        (footer(aca van cosas como el copyright o detalles de ese estilo)
+        )
+
+    ]...
+}
+-->
+
 <!DOCTYPE html>
-    <!--El lenguaje de HTML puede verse como parentesis dentro de otros parentesis, o una 
-    lista que se ramifica. el !Doctype es todo el codigo
-    
-    Doctype(lang="es" (head(aca siempre va el <title> y las meta que son 6)) , (body(contenido)) , (footer(aca van cosas como el copyright o detalles de ese estilo))...)
-    -->
 
-    <html lang="es"> <!--Define el idioma de la página-->
-    <head> 
+<html lang="es"><!--esto es para especificar el idioma de la página, en este caso español-->
+
+    <!--la semántica es importante. Cada página debe tener un head y body. Dentro del body va el contenido principal.
+    El body puede contar con el header, nav, main, aside y el footer-->
+
+    <head><!--en el head van cosas como el título de la página, las meta etiquetas, los enlaces a archivos de estilo o javascript, etc.-->
         <title>titulo</title> <!--titulo de la pagina, aparece arriba de todo en la sección de pestañas-->
-   
+        <meta charset="UTF-8"><!--esto es para que se puedan usar caracteres especiales, como acentos, eñes, etc.-->
 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="descripcion de la pagina">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--esto es para que la pagina se adapte a 
+        cualquier dispositivo, como celulares o tablets, y no se vea mal-->
+
+        <meta name="description" content="descripción de la pagina">
         <meta name="keywords" content="palabra1, palabra2"> <!--aca van palabras o frases clave de la pagina, yo pongo 2 o 3
         por ejemplo, html si la pagina habla sobre html-->
-        <meta name="author" content="Tu nombre xd">
+        <meta name="author" content="Tu nombre">
+        <!--Para enlazar con el archivo de estilo (css) se utiliza lo siguiente:
+-->
+        <link rel="stylesheet" href="style.css">
+        <!--para enlazar un archivo javascript se utiliza lo siguiente:-->
+        <script src="script.js"></script>
     </head>
     <!-- cada que se inicia una parte del codigo se pone  <ejemplo>, y para terminarla
      se usa </ejemplo> con la misma palabra o letra-->
-    <body>
+    <body><!-- esto es el cuerpo de la pagina, donde va el contenido principal -->
+        <header><!--en el header va el titulo de la pagina, o el logo, o cosas asi, es como la parte de arriba de la pagina-->
+            <h1>Titulo</h1> <!--h1 es la letra de los titulos, se utiliza uno por página, y luego se usan los
+            h2 para subtitulos o menor tamaño.-->
+        </header>
+        <nav><!--en el nav van los links a otras partes de la pagina o a otras paginas-->
+            <ul><!--ul crea una lista sin orden-->
+                <li><!--li (list item) abre un elemento de la lista -->
+                    <a href="ejemplo1.html">
+                        Inicio
+                    </a>
+                </li>
+                <li>
+                    <a href="ejemplo2.html">
+                        Acerca de
+                    </a>
+                </li>
+                <li>
+                    <a href="ejemplo3.html">
+                        Contacto
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <main><!--en el main va el contenido principal de la pagina, como texto, imagenes, videos, etc.-->
+            <dl><!--dl (description list) abre una lista de definiciones, es decir, una lista con subtitulos y contenido debajo-->
+                <dt>subtitulo de lista</dt><!--dt (description term) abre una especie de subtitulo en la lista-->
 
-        <h1>Titulo</h1> <!--h1 es la letra de los titulos, los vuelve grandes
-        h2 para subtitulos-->
+                <img src="imagen.png" alt="descripcion de imagen" width="300" height="200"> <!--aca podes poner una imagen 
+                descargada. La descripción de la imágen no aparece. Es para las personas
+                de visión reducida, para que sepan qué es la imagen y que el talkback lea la descripción y se escuche qué es-->
 
-        <dl> <!--dl (description-list) abre una lista-->
-
-            <dt>subtitulo de lista</dt><!--dt (description term) abre una especie de subtitulo en la lista-->
+                <dd><!--dd sirve para empezar con el contenido del subtitulo de la lista-->
+                    definición...  
+                </dd>
+            </dl>
+            <section><!--en el section va un apartado específico del contenido principal-->
                 
+                <div class="apartado1"><!--el div es un contenedor que se puede usar para agrupar elementos 
+                                        y aplicarles estilos o scripts. Además se les puede asignar una clase 
+                                        para aplicar estilos específicos.  Se pueden poder divs dentro de divs-->
 
-            <img src="imagen.png" alt="descripcion de imagen" width="300" height="200"> <!--aca podes poner una imagen descargada
-            la descripcion de imagen no aparece, queda como nombre de imagen que queda de fondo, no se lee a menos que 
-            no haya cargado. Creo que es para los ciegos, que su talkback lea la imagen y escuche qué es-->
+                    <h2>Subtitulo del apartado</h2>
+                    <p>Contenido del apartado...</p><!--este es un párrafo dentro del apartado-->
+                </div>
 
-            <dd>definicion...  </dd> <!--dd se usa para empezar con el contenido del subtitulo de la lista
-            -->
-        </dl>
+                <div class="apartado2">
+                    <h2>Subtitulo del apartado</h2>
+                    <p>Contenido del apartado...</p>
+                </div>
 
-        <a href="nombrearchivo1.html">link a ejemplo</a><!--entre las comillas van los nombres
-        de los archivos que son otras páginas, tiene que ser igual al archivo o si no, no funciona-->
-        <a href="glosario.html">otro link a ejemplo</a>
-        <!-- si la imagen/archivo está en otra parte que no es en el mismo lugar de este mismo
-         archivo y está dentro de una carpeta, entonces hay que especificar la ubicación
-         por ejemplo: carpeta/ejemplo.term (la terminación .html si es página, si es imagen .png o lo que tenga)
-        
-        con esto podes completar todos los puntos, aunque la profe creo que te habia dicho
-        que no era necesario, no sé, el siguiente trabajo es más fácil que este.
-    -->
+            </section>
+        </main>
+        <footer><!-- en el footer van cosas como copyright, o detalles de ese estilo, o links a otras páginas-->
+            <a href="nombrearchivo1.html">link a ejemplo</a><!--entre las comillas van los nombres
+            de los archivos que son otras páginas, tiene que ser igual al archivo o si no, no funciona-->
+            <a href="glosario.html">otro link a ejemplo</a>
+            <!-- si la imagen/archivo está en otra parte que no es en el mismo lugar de este mismo
+            archivo y está dentro de una carpeta, entonces hay que especificar la ubicación
+            por ejemplo: carpeta/ejemplo.term (la terminación .html si es página, 
+            si es imagen .png o lo que tenga)-->
+
+            <p>&copy; 2026 Mi Sitio Web. Todos los derechos reservados.</p>
+        </footer>
     </body>
+    <script>
+        // Esto es un comentario en JavaScript
+        // Aquí puedes agregar código JavaScript
+    </script>
+    <style>
+        /* Esto es un comentario en CSS
+        Aquí puedes agregar estilos CSS */
+    </style>
 </html> 
